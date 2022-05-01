@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "aspnet-prerendering": "^3.0.1"
+  },
+  "devDependencies": {
+    "aspnet-webpack": "^3.0.0"
+  }
+}
