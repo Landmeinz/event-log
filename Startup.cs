@@ -38,8 +38,8 @@ namespace event_log
                         ));
 
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseNpgsql(connectionString)
-            );
+            options.UseNpgsql(connectionString));
+
             Console.WriteLine($"-- end the fuck -- ");
 
 
@@ -52,6 +52,7 @@ namespace event_log
 
             // --- LOOK INTO THIS --- this is not running and program skipped over it --- // 
 
+            System.Console.WriteLine(" --- start of AddSpaStaticFiles ---");
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -60,7 +61,7 @@ namespace event_log
                 System.Console.WriteLine(" we exit ");
             });
 
-            Console.WriteLine($"-- end whattabout this -- ");
+            Console.WriteLine($"-- end of AddSpaStaticFiles -- ");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

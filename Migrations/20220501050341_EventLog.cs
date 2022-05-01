@@ -14,9 +14,9 @@ namespace event_log.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    eventName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    eventLocation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    eventNotes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    eventName = table.Column<string>(type: "varchar(250)", nullable: false),
+                    eventLocation = table.Column<string>(type: "varchar(250)", nullable: false),
+                    eventNotes = table.Column<string>(type: "varchar(250)", nullable: false),
                     rating = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

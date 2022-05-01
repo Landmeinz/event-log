@@ -33,15 +33,15 @@ namespace event_log.Migrations
 
                     b.Property<string>("eventLocation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("eventName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("eventNotes")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<int>("rating")
                         .HasColumnType("int");
