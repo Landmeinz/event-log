@@ -6,23 +6,44 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace event_log.Models
 {
+
+    public enum Rating
+    {
+        terrible,
+        notGreat,
+        noComplaints,
+        prettyGood,
+        amazing
+    }
+
     public class EventLog
     {
         public int id { get; set; }
 
         [Required]
-        public string name { get; set; }
+        public string eventName { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress]
-        //validated format?
-        public string emailAddress { get; set; }
+        public string eventLocation { get; set; }
+
+        [Required]
+        public string eventNotes { get; set; }
+
+        [Required]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public Rating rating { get; set; }
+
+
+        // [Required]
+        // [DataType(DataType.EmailAddress)]
+        // [EmailAddress]
+        // //validated format?
+        // public string emailAddress { get; set; }
 
         // this is ignoring putting the petList into the DB table; not a DB column but a dynamic created field to get the pet count;
         // [JsonIgnore]
         // public ICollection<Event> petList { get; set; }
-        
+
 
 
         // [NotMapped]
