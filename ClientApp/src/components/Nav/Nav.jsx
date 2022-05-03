@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // import './Nav.css';
 
@@ -11,54 +11,49 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AppsIcon from '@mui/icons-material/Apps';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Typography from '@mui/material/Typography';
+
+import {
+  sxNavContainer,
+  sxNavLink
+} from '../_sxStyles/_sxStyles';
+
 
 
 function Nav() {
 
-  // const user = useSelector((store) => store.user);
+  const history = useHistory();
 
-  const sxNavContent = {
-    // border: '1px solid purple',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    // mx: 'auto',
-    position: 'fixed',
-    width: 355,
-    height: 55,
-    bottom: 10,
-    borderRadius: 1,
-    bgcolor: 'info.main',
-    pt: 1.5,
+  function handleClick(page) {
+    switch (page) {
+      case 'home':
+        history.push('/home');
+        break;
 
-  }; // sxNavContent
+      case 'about':
+        history.push('/about');
+        break;
 
+      default:
+        break;
+    }; // switch
 
+  }; // handleClick
+
+  // history.push('/PlantDetails');
 
   return (
-    <div className="nav">
+    <Box sx={sxNavContainer}>
 
-      <Box sx={sxNavContent}>
+      <Typography sx={sxNavLink} onClick={() => handleClick("home")}>
+        HOME
+      </Typography>
 
-        <Link to="/">
-          <FormatListBulletedIcon color="secondary" fontSize="large" />
-        </Link>
-
-        {/* <Link to="/collection">
-          <AppsIcon color="secondary" fontSize="large" />
-        </Link>
-
-        <Link to="/add_plant">
-          <AddBoxIcon color="secondary" fontSize="large" />
-        </Link>
-
-        <Link to="/user_profile">
-          <AccountBoxIcon color="secondary" fontSize="large" />
-        </Link> */}
-
-      </Box>
-
-    </div>
+      <Typography sx={sxNavLink} onClick={() => handleClick("about")}>
+        ABOUT
+      </Typography>
+      
+    </Box>
   );
 }
 

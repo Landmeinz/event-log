@@ -39,7 +39,7 @@ namespace event_log.Migrations
 
                     b.Property<string>("eventNotes")
                         .IsRequired()
-                        .HasColumnType("varchar(250)");
+                        .HasColumnType("varchar(2500)");
 
                     b.Property<int>("rating")
                         .HasColumnType("int");

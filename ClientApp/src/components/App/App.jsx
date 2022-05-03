@@ -6,24 +6,17 @@ import {
   Redirect,
   Route,
   Switch,
+  Link,
 } from 'react-router-dom';
 
+import { sxSite
+} from '../_sxStyles/_sxStyles';
+
+import './App.css';
+
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-// import LoginPage from '../LoginPage/LoginPage.jsx';
-// import RegisterPage from '../RegisterPage/RegisterPage.jsx';
-// import Collection from '../Collection/Collection.jsx';
-// import Dashboard from '../Dashboard/Dashboard.jsx';
-// import PlantForm from '../PlantForm/PlantForm.jsx';
-// import Profile from '../Profile/Profile.jsx';
-// import PlantDetails from '../PlantDetails/PlantDetails.jsx';
-// import AdminPage from '../AdminPage/AdminPage.jsx';
-// import ScrollToTop from '../ScrollToTop/ScrollToTop.jsx';
-
-// import './App.css';
+import Home from '../Home/Home';
+import About from '../About/About'
 
 // --- MUI --- //
 // import '@fontsource/roboto/300.css';
@@ -33,13 +26,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { red } from '@mui/material/colors';
 
 
 function App() {
 
   const dispatch = useDispatch();
 
-  const user = useSelector(store => store.user);
+  // const user = useSelector(store => store.user);
 
   // useEffect(() => {
   //   dispatch({ type: 'FETCH_USER' });
@@ -78,61 +72,55 @@ function App() {
     },
   });
 
-  // container so that we can center our sxAppContent on the screen
-  const sxApp = {
-    // border: '1px solid red',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  }; // sxApp
 
-  // constrain all content down to mobile sizing
-  const sxAppContent = {
-    border: '2px solid lightgray',
-    width: 355,
-    // width: 800,
-    height: 725,
-    // borderRadius: 4,
-    overflow: 'auto',
-  }; // sxAppContent
+
+  // // container so that we can center our sxAppContent on the screen
+  // const sxApp = {
+  //   // border: '1px solid red',
+  //   display: 'flex',
+  //   flexDirection: 'row',
+  //   justifyContent: 'center',
+  // }; // sxApp
+
+  // // constrain all content down to mobile sizing
+  // const sxAppContent = {
+  //   border: '2px solid lightgray',
+  //   width: 355,
+  //   // width: 800,
+  //   height: 725,
+  //   // borderRadius: 4,
+  //   overflow: 'auto',
+  // }; // sxAppContent
 
 
   return (
-
     <ThemeProvider theme={theme}>
       <Typography>
-
         <Router>
-          <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/dashboard */}
-            {/* <Redirect exact from="/" to="/dashboard" /> */}
 
-            {/* For protected routes, the view could show one of several things on the same route.
-              Visiting localhost:3000/user will show the UserPage if the user is logged in.
-              If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-              Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+          <Box sx={sxSite}>
+            <Nav />
 
-            {/* Visiting localhost:3000/dashboard will show the user their dashboard & water schedule. */}
-            {/* <Nav /> */}
-            <Route
-              // logged in shows Dashboard else shows LoginPage
-              exact
-              path="/"
-            >
-              in the / root
-              <Footer />
-            </Route>
+            <Switch>
+              <Route path="/home">
+                <Home />
+              </Route>
 
-            {/* ELSE IF no other routes matched, we will show a 404. */}
-            <Route>
-              <h1>404</h1>
-            </Route>
+              <Route path="/about">
+                <About />
+              </Route>
 
-          </Switch>
+            </Switch>
+          </Box>
+
         </Router>
       </Typography>
     </ThemeProvider>
   );
 }
+
+
+
+
 
 export default App;
