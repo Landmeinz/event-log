@@ -4,6 +4,7 @@ import { all } from 'redux-saga/effects';
 // import userSaga from './user.saga';
 // import plantSaga from './plant.saga';
 // import photoSaga from './photo.saga';
+import eventLogSaga from './logEventSaga';
 import currentDateSaga from './current_date.saga';
 // import userListSaga from './userList.saga';
 
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     // userSaga(),
     // plantSaga(),
     // photoSaga(),
+    eventLogSaga(),
     currentDateSaga(),
     // userListSaga(),
   ]);

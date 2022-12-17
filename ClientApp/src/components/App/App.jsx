@@ -9,7 +9,9 @@ import {
   Link,
 } from 'react-router-dom';
 
-import { sxSite
+import {
+  sxSite,
+  sxSiteContent
 } from '../_sxStyles/_sxStyles';
 
 import './App.css';
@@ -97,30 +99,26 @@ function App() {
     <ThemeProvider theme={theme}>
       <Typography>
         <Router>
-
           <Box sx={sxSite}>
-            <Nav />
+            <Box sx={sxSiteContent}>
+              <Nav />
 
-            <Switch>
-              <Route path="/home">
-                <Home />
-              </Route>
+              <Switch>
+                <Route path="/home">
+                  <Home />
+                </Route>
 
-              <Route path="/about">
-                <About />
-              </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+              </Switch>
 
-            </Switch>
+            </Box>
           </Box>
-
         </Router>
       </Typography>
     </ThemeProvider>
   );
 }
-
-
-
-
 
 export default App;

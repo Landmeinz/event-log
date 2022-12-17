@@ -45,14 +45,14 @@ function Nav() {
   return (
     <Box sx={sxNavContainer}>
 
-      <Typography sx={sxNavLink} onClick={() => handleClick("home")}>
-        HOME
+      <Typography variant='h5' sx={sxNavLink} onClick={() => handleClick("home")}>
+        LOG
       </Typography>
 
-      <Typography sx={sxNavLink} onClick={() => handleClick("about")}>
+      <Typography variant='h5' sx={sxNavLink} onClick={() => handleClick("about")}>
         ABOUT
       </Typography>
-      
+
     </Box>
   );
 }
